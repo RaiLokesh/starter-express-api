@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
-const {JWT_SECRET2} = require('../keys')
+const {JWT_SECRET1} = require('../keys')
 const mongoose = require('mongoose')
-const User = mongoose.model('Org')
+const User = mongoose.model('User')
 
 module.exports = (req, res, next)=>{
     const {authorization} = req.headers
@@ -10,7 +10,7 @@ module.exports = (req, res, next)=>{
         return res.status(401).json({error:"You must be logged in"})
     }
     const token = authorization.replace("Bearer ", "")
-    jwt.verify(token, JWT_SECRET2, (error, payload)=>{
+    jwt.verify(token, JWT_SECRET1, (error, payload)=>{
         if(error){
             return res.status(401).json({error:"You must be logged in"})
         }

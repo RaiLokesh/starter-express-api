@@ -1,8 +1,21 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
-const requireLogin = require('../middleware/requirelogin')
+const requireLogin = require('../middleware/requireLogin')
+const requireuserLogin = require('../middleware/requireuserLogin')
 const Post = mongoose.model('Post')
+
+router.get('/allpost',requireuserLogin, (req, res)=>{    //new middleware here
+    Post.find()
+    .populate("postedBy", "name _id")
+    .then(posts=>{
+        res.json({posts})
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+
 
 router.post('/createpost',requireLogin, (req, res)=>{
     const {title, body} = req.body
@@ -25,5 +38,16 @@ router.post('/createpost',requireLogin, (req, res)=>{
     
 })
 
+router.get('/mypost',requireLogin, (req, res)=>{
+    console.log(req.user)
+    Post.find({postedBy:req.user._id})
+    .populate("postedBy", "_id name")
+    .then(mypost=>{
+        res.json({mypost})
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
 
 module.exports = router
