@@ -13,9 +13,58 @@
     
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
-    <title>Sineware</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Sinecure</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
     <style>
+      
+      
+      
+      #navbar a {
+        display:block;
+        text-align:center;
+        width:90px;
+        
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #F1EC40;
+        align-items: center;
+        font-family: 'Questrial', sans-serif;
+        
+      }
+
+      li {
+        float:left;
+
+      }
+
+      li a {
+        display: block;
+        color: #121212;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        
+      }
+
+
+      li a:hover {
+        border-bottom: 2px solid #121212;
+	      font-weight:bold;
+        
+      }
+      
+      .active {
+        border-bottom: 2px solid #121212;
+	      font-weight:bold;
+        
+      }
       .split {
         height: 100%;
         width: 50%;
@@ -34,6 +83,13 @@
       .right {
         right: 0;
         background-color: #F1EC40;
+      }
+      .centerednav {
+        position: absolute;
+        
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
       }
 
       .centered {
