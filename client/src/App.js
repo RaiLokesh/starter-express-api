@@ -3,8 +3,12 @@ import templogo from 'D:/Project Related (PERSONAL)/sinecure/server/client/src/t
 import NavBar from './components/Navbar'
 import Home from './components/Home'
 import About from './components/About'
+import SUD from './components/signupdev'
+import SUO from './components/signuporg'
+import SID from './components/signindev'
+import SIO from './components/signinorg'
 import {BrowserRouter, Route} from 'react-router-dom'
-import ContactUs from './components/ContactUs';
+import Contact from './components/Contact';
 
 //font used: Questrial - 400
 
@@ -37,10 +41,38 @@ function App() {
             
             </div>
           </Route>
-          <Route path="/contactus">
+          <Route path="/contact">
             <div className="containersx">
             
-            <ContactUs/>
+            <Contact/>
+            
+            </div>
+          </Route>
+          <Route path="/signupdev">
+            <div className="containersx">
+            
+            <SUD/>
+            
+            </div>
+          </Route>
+          <Route path="/signuporg">
+            <div className="containersx">
+            
+            <SUO/>
+            
+            </div>
+          </Route>
+          <Route path="/signindev">
+            <div className="containersx">
+            
+            <SID/>
+            
+            </div>
+          </Route>
+          <Route path="/signinorg">
+            <div className="containersx">
+            
+            <SIO/>
             
             </div>
           </Route>

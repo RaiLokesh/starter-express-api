@@ -1,6 +1,7 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
-const ContactUs = ()=>{
+const Contact = ()=>{
   return(
     <div className = "w3-container" style = {{fontFamily: "'Poppins', sans-serif"}}>
         <p>
@@ -28,4 +29,4 @@ const ContactUs = ()=>{
   )
 }
 
-export default ContactUs
+export default Contact

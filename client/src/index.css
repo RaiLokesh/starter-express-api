@@ -43,7 +43,17 @@ code {
   font-weight: bold;
   
 }
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+}
 
+
+
+.container {
+  padding: 2px 16px;
+}
 
 .containersx{
   width:80%;
@@ -66,6 +76,25 @@ i{
   
   padding: 3%;
 }
+
+button {
+  background-color: #121212;
+  color: #F1EC40;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 700;
+}
+
+button:hover {
+  opacity: 0.8;
+  
+  color: #F1EC40;
+  background-color: #121212;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -83,19 +112,35 @@ li {
 }
 
 li a {
-  display: block;
+  
   color: #121212;
-  text-align: center;
   padding: 10px 10px;
   text-decoration: none;
-  font-weight:bold;
+  width: 70px;
+  font-size: 120%;
+	font-weight:bold;
+  border-bottom: 2px solid transparent;
 }
 
 
 li a:hover {
-  font-weight:bold;
   border-bottom: 2px solid #121212;
   
+}
+form {
+  border: 6px solid #121212;
+  padding: 50px;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #121212;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  background-color: transparent;
 }
 
 .split {

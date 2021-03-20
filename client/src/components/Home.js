@@ -1,8 +1,10 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+
 
 const Home = ()=>{
   return(
-    <div className = "w3-container" style = {{fontFamily: "'Poppins', sans-serif"}}>
+    <div style = {{fontFamily: "'Poppins', sans-serif"}}>
         <p>
             <h1>Welcome</h1>
             
@@ -12,10 +14,10 @@ const Home = ()=>{
         <p>
             <center>
                 <p>
-                <a href="#" class="btn btn-ful">I am a Developer</a>
+                <Link to="/signupdev" class="btn btn-ful">I am a Developer</Link>
                 </p>
                 <p>
-                <a href="#" class="btn btn-full">We are an Organisation</a>
+                <Link to="/signuporg" class="btn btn-full">We are an Organisation</Link>
                 </p>
             </center>
         </p>
