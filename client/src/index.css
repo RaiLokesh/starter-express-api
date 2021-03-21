@@ -81,6 +81,7 @@ button {
   background-color: #121212;
   color: #F1EC40;
   padding: 14px 20px;
+  border-radius: 200px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
@@ -90,7 +91,6 @@ button {
 
 button:hover {
   opacity: 0.8;
-  
   color: #F1EC40;
   background-color: #121212;
 }
@@ -118,14 +118,19 @@ li a {
   text-decoration: none;
   width: 70px;
   font-size: 120%;
-	font-weight:bold;
+	
   border-bottom: 2px solid transparent;
 }
 
 
 li a:hover {
-  border-bottom: 2px solid #121212;
   
+  font-weight:bold;
+  
+}
+.active{
+  font-weight:bold;
+  border-bottom: 2px solid #121212;
 }
 form {
   border: 6px solid #121212;
@@ -141,6 +146,9 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
   background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 .split {

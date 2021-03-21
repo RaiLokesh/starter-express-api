@@ -1,11 +1,36 @@
 import React from 'react'
-import  {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import templogo from 'D:/Project Related (PERSONAL)/sinecure/server/client/src/templogo.png';
+
 const SUO = ()=>{
   return(
-    <div style = {{fontFamily: "'Poppins', sans-serif"}}>
+    
+    <div>
+      <div>
+      <div className = "split left">
+      <div className="centered">
+        <img src={templogo} className = "centered"></img>
+      </div>
+      </div>
+      </div>
+      <div className = "split right">
+        <div>
+          <div><br></br><br></br></div>
+          <div className="centerednav" id = "navbar">
+
+            <ul>
+
+                <li><Link to="/" className="active">Home</Link></li>
+                <li><Link to="/about" >About</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
+                
+            </ul>
+          
+		      </div>
+        </div>
+      
+        <div className="containersx" style = {{fontFamily: "'Poppins', sans-serif"}}>
         
-        
-            
         <h1>Signup</h1>
             
             <form action="" method="post">
@@ -27,8 +52,11 @@ const SUO = ()=>{
             <center>
                 <Link to="/signinorg" style={{color:"black"}}>Signin Instead?</Link>
             </center>
-            
+       </div> 
+    
     </div>
+    </div>
+    
   )
 }
 

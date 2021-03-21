@@ -1,9 +1,36 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import templogo from 'D:/Project Related (PERSONAL)/sinecure/server/client/src/templogo.png';
 
 const Contact = ()=>{
   return(
-    <div className = "w3-container" style = {{fontFamily: "'Poppins', sans-serif"}}>
+    
+    <div>
+      <div>
+      <div className = "split left">
+      <div className="centered">
+        <img src={templogo} className = "centered"></img>
+      </div>
+      </div>
+      </div>
+      <div className = "split right">
+        <div>
+          <div><br></br><br></br></div>
+          <div className="centerednav" id = "navbar">
+
+            <ul>
+
+                <li><Link to="/" >Home</Link></li>
+                <li><Link to="/about" >About</Link></li>
+                <li><Link to="/contact" className="active">Contact</Link></li>
+                
+            </ul>
+          
+		      </div>
+        </div>
+      
+        <div className="containersx" style = {{fontFamily: "'Poppins', sans-serif"}}>
+        
         <p>
             
             This website is currently managed by its creater himself.
@@ -24,8 +51,11 @@ const Contact = ()=>{
 		<a href="https://github.com/RaiLokesh"><i class="fa fa-github" style={{color:"black"}}></i></a>
         
         </p>
-        
+       </div> 
+    
     </div>
+    </div>
+    
   )
 }
 
