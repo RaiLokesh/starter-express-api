@@ -211,10 +211,9 @@ input[type=text], input[type=password] {
 
 .styles{
   position: relative;
-  font-family: 'Dancing Script', cursive;
-  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
   color:#fff;
-  font-size:40px;
+  font-size: 15px;
   left:3%;
 }
 
@@ -259,4 +258,12 @@ input[type=text], input[type=password] {
   position: relative;
   top: 15%;
   left: 3%;
+}
+
+.innerprofs{
+  position: absolute;
+  width: 60%;
+  text-align: center;
+  height: 100%;
+  left:20%
 }

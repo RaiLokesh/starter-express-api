@@ -42,13 +42,13 @@ const Contact = ()=>{
         <br></br>
         <p style={{textAlign:"center", padding:"5px"}}>
         
-        <a href="https://twitter.com/RhetoricianSays" style={{color:"black"}}><i class="fa fa-twitter"></i></a>
+        <a href="https://twitter.com/RhetoricianSays" style={{color:"#121212"}}><i class="fa fa-twitter"></i></a>
         
         
-		<a href="https://www.linkedin.com/in/lokesh-rai-60a324199/" style={{color:"black"}}><i class="fa fa-linkedin"></i></a>
-        
-        
-		<a href="https://github.com/RaiLokesh"><i class="fa fa-github" style={{color:"black"}}></i></a>
+        <a href="https://www.linkedin.com/in/lokesh-rai-60a324199/" style={{color:"#121212"}}><i class="fa fa-linkedin"></i></a>
+            
+            
+        <a href="https://github.com/RaiLokesh"><i class="fa fa-github" style={{color:"#121212"}}></i></a>
         
         </p>
        </div> 
