@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -100,7 +101,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #F1EC40;
+  background-color: transparent;
   align-items: center;
   font-family: 'Questrial', sans-serif;
   
@@ -172,7 +173,6 @@ input[type=text], input[type=password] {
 }
 .centerednav {
   position: absolute;
-  
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -188,4 +188,75 @@ input[type=text], input[type=password] {
 
 .centered img {
   width: 500px;
+}
+
+.outsidediv{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  overflow-x: hidden;
+  background-color: #121212;
+}
+
+.insidediv {
+  height: 100%;
+  width: 85%;
+  left:15%;
+  position: fixed;
+  z-index: 1;
+  overflow-x: hidden;
+  background-color: #121212;
+}
+
+.styles{
+  position: relative;
+  font-family: 'Dancing Script', cursive;
+  font-weight: bold;
+  color:#fff;
+  font-size:40px;
+  left:3%;
+}
+
+.back{
+  background-image: url("back.png");
+  width:100%;
+  top: 0%;
+  height: 15%;
+  background-color: #fff;
+}
+
+#mag a:hover {
+  font-size: 36px;
+  
+}
+
+.activein{
+  font-size:36px;
+}
+
+.nav-in{
+  position: fixed;
+  top: 0%;
+  left:0%;
+  text-align: center;
+  width: 14%;
+	
+}
+#navbar-in{
+  overflow: hidden;
+  background-color: #121212;
+  display: block;
+}
+#navbar-in a{
+  display: block;
+  color: #fff;
+  width:90px;
+  float:center;
+}
+
+.img-pos{
+  position: relative;
+  top: 15%;
+  left: 3%;
 }

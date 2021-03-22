@@ -15,45 +15,45 @@ function App() {
   
   return (
     <BrowserRouter>
-    <div>
+      <div>
 
-      <Route exact path="/">
-         <Home/>
-      </Route>
-          
-      <Route path="/about">
-        <About/>
-      </Route>
-          
-      <Route path="/contact">
-        <Contact/>
-      </Route>
-          
-      <Route path="/signupdev">
-        <SUD/>
-      </Route>
-          
-      <Route path="/signuporg">
-        <SUO/>
-      </Route>
-          
-      <Route path="/signindev">
-        <SID/>
-      </Route>
-          
-      <Route path="/signinorg">
-         <SIO/>
-      </Route>
+        <Route exact path="/">
+          <Home/>
+        </Route>
+            
+        <Route path="/about">
+          <About/>
+        </Route>
+            
+        <Route path="/contact">
+          <Contact/>
+        </Route>
+            
+        <Route path="/signupdev">
+          <SUD/>
+        </Route>
+            
+        <Route path="/signuporg">
+          <SUO/>
+        </Route>
+            
+        <Route path="/signindev">
+          <SID/>
+        </Route>
+            
+        <Route path="/signinorg">
+          <SIO/>
+        </Route>
 
-      <Route path="/profiledev">
-        <Profiledev/>
-      </Route>
+        <Route path="/profiledev">
+          <Profiledev/>
+        </Route>
 
-      <Route path="/profileorg">
-        <Profileorg/>
-      </Route>
-        
-    </div>
+        <Route path="/profileorg">
+          <Profileorg/>
+        </Route>
+          
+      </div>
     </BrowserRouter>
       
       

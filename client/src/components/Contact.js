@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import templogo from 'D:/Project Related (PERSONAL)/sinecure/server/client/src/templogo.png';
+import templogo from '../templogo.png';
 
 const Contact = ()=>{
   return(

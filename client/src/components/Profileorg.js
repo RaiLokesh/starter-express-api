@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Profiledev = () => {
+const Profileorg = () => {
     return (
         <div>
             <h1>hey</h1>
@@ -8,4 +8,4 @@ const Profiledev = () => {
     )
 }
 
-export default Profiledev
+export default Profileorg
