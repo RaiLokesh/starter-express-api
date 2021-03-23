@@ -218,11 +218,11 @@ input[type=text], input[type=password] {
 }
 
 .back{
-  background-image: url("back.png");
+  
   width:100%;
   top: 0%;
   height: 15%;
-  background-color: #fff;
+  background-color: #F1EC40;
 }
 
 #mag a:hover {
@@ -266,4 +266,40 @@ input[type=text], input[type=password] {
   text-align: center;
   height: 100%;
   left:20%
+}
+
+.centered-home{
+  height: 100%;
+  width: 85%;
+  left:8%;
+  position: fixed;
+  z-index: 1;
+  overflow-x: hidden;
+  background-color: #121212;
+  text-align: center;
+}
+
+.innerprofs-re{
+  position: absolute;
+  width: 60%;
+  text-align: center;
+  height: 40%;
+  left:11%;
+}
+
+.newbutton{
+  background-color: rgb(20, 196, 250);
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 200px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  font-weight: 700;
+}
+.newbutton:hover {
+  color: #fff;
+  opacity: 1;
+  background-color: #4ff140;
 }

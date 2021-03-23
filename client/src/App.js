@@ -9,6 +9,7 @@ import {BrowserRouter, Route} from 'react-router-dom'
 import Contact from './components/Contact'
 import Profiledev from './components/Profiledev'
 import Profileorg from './components/Profileorg'
+import Homein from './components/Homein';
 
 
 function App() {
@@ -51,6 +52,10 @@ function App() {
 
         <Route path="/profileorg">
           <Profileorg/>
+        </Route>
+
+        <Route path="/home">
+          <Homein/>
         </Route>
           
       </div>
