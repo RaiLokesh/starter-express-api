@@ -12,8 +12,8 @@ const Createpost = () => {
             history.push('/profiledev')
         }else if(who=="org"){
             return[
-                <li id="mag"><Link to="/createjob" style={{color:"#fff", padding:"25px"}}><i className="fa fa-edit"></i></Link></li>,
-                <li id="mag"><Link to="/profileorg" style={{color:"#fff", padding:"25px"}} className="activein"><i className="fa fa-user" ></i></Link></li>
+                <li id="mag"><Link to="/createjob" style={{color:"#fff", padding:"25px"}} className="activein"><i className="fa fa-edit"></i></Link></li>,
+                <li id="mag"><Link to="/profileorg" style={{color:"#fff", padding:"25px"}} ><i className="fa fa-user" ></i></Link></li>
             ]
         }
     }

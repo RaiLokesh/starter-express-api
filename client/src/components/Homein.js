@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import {Link, useHistory} from 'react-router-dom'
 import {UserContext} from '../App'
 
@@ -10,14 +10,27 @@ const Homein = () => {
         console.log(who)
         if (who=="dev"){
             return[
-                <li id="mag"><Link to="/allpost" style={{color:"#fff", padding:"25px"}}><i className="fa fa-home"></i></Link></li>,
+                <li id="mag"><Link to="/allpost" style={{color:"#fff", padding:"25px"}}><i className="fa fa-home" className="activein"></i></Link></li>,
                 <li id="mag"><Link to="#" style={{color:"#fff", padding:"25px"}}><i className="fa fa-envelope"></i></Link></li>,
-                <li id="mag"><Link to="/profiledev" style={{color:"#fff", padding:"25px"}} className="activein"><i className="fa fa-user" ></i></Link></li>
+                <li id="mag"><Link to="/profiledev" style={{color:"#fff", padding:"25px"}} ><i className="fa fa-user" ></i></Link></li>
             ]
         }else if(who=="org"){
             history.push('/profileorg')
         }
     }
+
+    const [data, setData] = useState([])
+    useEffect(()=>{
+            fetch('/allpost',{
+                headers:{
+                    "Authorization":"Bearer "+localStorage.getItem("jwt")
+                }
+            }).then(res=>res.json())
+            .then(result=>{
+                setData(result.posts)
+            })
+    },[])
+
     return (
         <div className="outsidediv">
             <div className="nav-in" id="navbar-in">
@@ -29,47 +42,28 @@ const Homein = () => {
                 <br></br>
 
                 <div className="innerprofs-re">
-                    <div style={{}}>
-                        <img style={{borderRadius:"25px",width:"50px", height:"50px",border:"2px solid #fff"}} src="https://github.com/RaiLokesh/Sinecure/blob/master/client/public/logo.png?raw=true">
-                        </img>
-                        <h1 style={{color:"#fff"}}>Sinecure</h1>
-                        <p style={{color:"#fff"}}>We require a frontend developer for improving UI for our website</p>
-                        <h4 style={{color:"#fff", fontFamily:"sans-serif"}}>Stipend: Unpaid</h4> 
-                        <br></br>
-                        <button className="newbutton">Apply</button>
-                        <br></br>
-                        <hr></hr>
-                        <br></br>
-                        <br></br>
-                    </div>
+                    {
+                        data.map(item=>{
+                            return(
+                                <div style={{}}>
+                                    <img style={{borderRadius:"25px",width:"50px", height:"50px",border:"2px solid #fff"}} src={item.photo}>
+                                    </img>
+                                    <h1 style={{color:"#fff"}}>{item.postedBy.name}</h1>
+                                    <p style={{color:"#fff"}}>{item.title}</p>
+                                    <h4 style={{color:"#fff", fontFamily:"sans-serif"}}>Stipend: {item.body}</h4>
+                                    <br></br>
+                                    <button className="newbutton">Apply</button>
+                                    <br></br>
+                                    <hr></hr>
+                                    <br></br>
+                                    <br></br>
+                                </div>
+                            )
+                        })
+                    }
                     
-                    <div style={{}}>
-                        <img style={{borderRadius:"25px",width:"50px", height:"50px",border:"2px solid #fff"}} src="https://github.com/RaiLokesh/Sinecure/blob/master/client/public/logo.png?raw=true">
-                        </img>
-                        <h1 style={{color:"#fff"}}>Sinecure</h1>
-                        <p style={{color:"#fff"}}>We require a frontend developer for improving UI for our website</p>
-                        <h4 style={{color:"#fff", fontFamily:"sans-serif"}}>Stipend: Unpaid</h4> 
-                        <br></br>
-                        <button className="newbutton">Apply</button>
-                        <br></br>
-                        <hr></hr>
-                        <br></br>
-                        <br></br>
-                    </div>
-
-                    <div style={{}}>
-                        <img style={{borderRadius:"25px",width:"50px", height:"50px",border:"2px solid #fff"}} src="https://github.com/RaiLokesh/Sinecure/blob/master/client/public/logo.png?raw=true">
-                        </img>
-                        <h1 style={{color:"#fff"}}>Sinecure</h1>
-                        <p style={{color:"#fff"}}>We require a frontend developer for improving UI for our website</p>
-                        <h4 style={{color:"#fff", fontFamily:"sans-serif"}}>Stipend: Unpaid</h4> 
-                        <br></br>
-                        <button className="newbutton">Apply</button>
-                        <br></br>
-                        <hr></hr>
-                        <br></br>
-                        <br></br>
-                    </div>
+                    
+                    
                 
                 </div>
                 
