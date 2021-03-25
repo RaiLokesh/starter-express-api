@@ -7,9 +7,9 @@ const Homein = () => {
             <div className="nav-in" id="navbar-in">
                         <ul>
                             
-                            <li id="mag"><Link to="#" style={{color:"#fff", padding:"25px"}} class="activein"><i class="fa fa-home"></i></Link></li>
-                            <li id="mag"><Link to="#" style={{color:"#fff", padding:"25px"}}><i class="fa fa-envelope"></i></Link></li>
-                            <li id="mag"><Link to="/profiledev" style={{color:"#fff", padding:"25px"}}><i class="fa fa-user" ></i></Link></li>
+                            <li id="mag"><Link to="#" style={{color:"#fff", padding:"25px"}} className="activein"><i className="fa fa-home"></i></Link></li>
+                            <li id="mag"><Link to="#" style={{color:"#fff", padding:"25px"}}><i className="fa fa-envelope"></i></Link></li>
+                            <li id="mag"><Link to="/profiledev" style={{color:"#fff", padding:"25px"}}><i className="fa fa-user" ></i></Link></li>
                             
                         </ul>
             </div>

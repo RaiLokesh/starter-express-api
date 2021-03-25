@@ -1,8 +1,48 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, {useState,useContext} from 'react'
+import { UserContext } from '../App'
+import {Link, useHistory} from 'react-router-dom'
 import templogo from '../templogo.png';
 
 const SID = ()=>{
+  const {state, dispatch} = useContext(UserContext)
+  const history = useHistory()
+  const [password,setPasword] = useState("")
+  const [email,setEmail] = useState("")
+  
+  
+  const PostData = ()=>{
+    if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
+      M.toast({html: "Invalid email",classes:"#f44336 red"})
+      return
+    }
+    fetch("http://localhost:5000/signindev",{
+      method:"post",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        
+        password,
+        email
+      })
+    }).then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+      if (data.error){
+        M.toast({html: data.error, classes:"#f44336 red"})
+      }
+      else{
+        localStorage.setItem("jwt", data.token)
+        localStorage.setItem("user", JSON.stringify(data.user))
+        dispatch({type:"USER", payload:data.user})
+        M.toast({html:"signin success!", classes:"#64dd17 light-green accent-4"})
+        history.push('/allpost')
+      }
+    }).catch(err=>{
+      console.log(err)
+    })
+  }
+
   return(
     
     <div>
@@ -33,19 +73,24 @@ const SID = ()=>{
         
         <h1>Signin</h1>
             
-            <form action="" method="post">
+            
                 
                 <input 
                     type="text"
                     placeholder="Enter Email ID"
+                    value={email}
+                    onChange={(e)=>setEmail(e.target.value)}
                 />
                 <input 
                     type="password"
                     placeholder="Enter Password"
+                    value={password}
+                    onChange={(e)=>setPasword(e.target.value)}
                 />
-                <center><button type="submit">Signin</button></center>
-            </form> 
-            <br></br>
+                <br></br><br></br>
+                <center><button onClick={()=>PostData()}>Signin</button></center>
+            
+            <br></br><br></br>
             <center>
                 <Link to="/signupdev" style={{color:"black"}}>Signup Instead?</Link>
             </center>

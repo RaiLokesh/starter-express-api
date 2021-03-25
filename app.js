@@ -5,10 +5,9 @@ const mongoose = require('mongoose')
 const {MONGOURI} = require('./keys')
 
 
-//yellow color: F1EC40
-//black color: 121212
-//fonot: autowide 400
 
+var cors = require('cors')
+app.use(cors())
 
 mongoose.connect(MONGOURI, {
     useNewUrlParser: true,

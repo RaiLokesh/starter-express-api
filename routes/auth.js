@@ -98,7 +98,9 @@ router.post('/signindev', (req, res)=>{
             if(doMatch){
                 // res.json({message:"Successful Signup"})
                 const token = jwt.sign({_id:savedUser._id}, JWT_SECRET1)
-                res.json({token})
+                const {_id,name,email}=savedUser
+                
+                res.json({token, user:{_id,name,email}})
             }
             else{
                 res.status(422).json({error:"Invalid Email or Passowrd"})
@@ -125,7 +127,8 @@ router.post('/signinorg', (req, res)=>{
             if(doMatch){
                 // res.json({message:"Successful Signup"})
                 const token = jwt.sign({_id:savedUser._id}, JWT_SECRET2)
-                res.json({token})
+                const {_id, email} = savedUser
+                res.json({token, user:{_id,email}})
             }
             else{
                 res.status(422).json({error:"Invalid Email or Passowrd"})

@@ -38,10 +38,10 @@ const Home = ()=>{
         <br></br><br></br><br></br>
         
             <center>
-                <p>
+                <p style = {{fontFamily: "'Poppins', sans-serif"}}>
                 <Link to="/signupdev" className="btn btn-ful">I am a Developer</Link>
                 </p>
-                <p>
+                <p style = {{fontFamily: "'Poppins', sans-serif"}}>
                 <Link to="/signuporg" className="btn btn-full">We are an Organisation</Link>
                 </p>
             </center>

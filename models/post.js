@@ -11,7 +11,7 @@ const postSchema = new mongoose.Schema({
     },
     photo:{
         type:String,
-        default: "no photo"
+        default: "no photo" //remove default and add required=true when get img from profile
     },
     postedBy:{
         type:ObjectId,
