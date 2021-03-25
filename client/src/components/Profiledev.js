@@ -1,15 +1,31 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Link} from 'react-router-dom'
+import {UserContext} from '../App'
 
 const Profiledev = () => {
+    const {state, dispatch} = useContext(UserContext)
+    const renderList = ()=>{
+        const who = (localStorage.getItem("who"))
+        
+        if (who=="dev"){
+            return[
+                <li id="mag"><Link to="/allpost" style={{color:"#fff", padding:"25px"}}><i className="fa fa-home"></i></Link></li>,
+                <li id="mag"><Link to="#" style={{color:"#fff", padding:"25px"}}><i className="fa fa-envelope"></i></Link></li>,
+                <li id="mag"><Link to="/profiledev" style={{color:"#fff", padding:"25px"}} className="activein"><i className="fa fa-user" ></i></Link></li>
+            ]
+        }else if(who=="org"){
+            return[
+                <li id="mag"><Link to="/createjob" style={{color:"#fff", padding:"25px"}}><i className="fa fa-edit"></i></Link></li>,
+                <li id="mag"><Link to="/profileosrg" style={{color:"#fff", padding:"25px"}} className="activein"><i className="fa fa-user" ></i></Link></li>
+            ]
+        }
+    }
     return (
         <div className="outsidediv">
             <div className="nav-in" id="navbar-in">
                         <ul>
                             
-                            <li id="mag"><Link to="/allpost" style={{color:"#fff", padding:"25px"}}><i className="fa fa-home"></i></Link></li>
-                            <li id="mag"><Link to="#" style={{color:"#fff", padding:"25px"}}><i className="fa fa-envelope"></i></Link></li>
-                            <li id="mag"><Link to="#" style={{color:"#fff", padding:"25px"}} className="activein"><i className="fa fa-user" ></i></Link></li>
+                            {renderList()}
                             
                         </ul>
             </div>

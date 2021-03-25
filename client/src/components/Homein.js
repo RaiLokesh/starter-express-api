@@ -1,16 +1,28 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, {useState, useContext} from 'react'
+import {Link, useHistory} from 'react-router-dom'
+import {UserContext} from '../App'
 
 const Homein = () => {
+    const history = useHistory()
+    const {state, dispatch} = useContext(UserContext)
+    const renderList = ()=>{
+        const who = (localStorage.getItem("who"))
+        console.log(who)
+        if (who=="dev"){
+            return[
+                <li id="mag"><Link to="/allpost" style={{color:"#fff", padding:"25px"}}><i className="fa fa-home"></i></Link></li>,
+                <li id="mag"><Link to="#" style={{color:"#fff", padding:"25px"}}><i className="fa fa-envelope"></i></Link></li>,
+                <li id="mag"><Link to="/profiledev" style={{color:"#fff", padding:"25px"}} className="activein"><i className="fa fa-user" ></i></Link></li>
+            ]
+        }else if(who=="org"){
+            history.push('/profileorg')
+        }
+    }
     return (
         <div className="outsidediv">
             <div className="nav-in" id="navbar-in">
                         <ul>
-                            
-                            <li id="mag"><Link to="#" style={{color:"#fff", padding:"25px"}} className="activein"><i className="fa fa-home"></i></Link></li>
-                            <li id="mag"><Link to="#" style={{color:"#fff", padding:"25px"}}><i className="fa fa-envelope"></i></Link></li>
-                            <li id="mag"><Link to="/profiledev" style={{color:"#fff", padding:"25px"}}><i className="fa fa-user" ></i></Link></li>
-                            
+                            {renderList()}
                         </ul>
             </div>
             <div className="insidediv">

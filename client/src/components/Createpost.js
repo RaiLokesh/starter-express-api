@@ -1,7 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {Link, useHistory} from 'react-router-dom'
 import M from 'materialize-css'
+import {UserContext} from '../App'
+
 const Createpost = () => {
+    const {state, dispatch} = useContext(UserContext)
+    const renderList = ()=>{
+        const who = (localStorage.getItem("who"))
+        console.log(who)
+        if (who=="dev"){
+            history.push('/profiledev')
+        }else if(who=="org"){
+            return[
+                <li id="mag"><Link to="/createjob" style={{color:"#fff", padding:"25px"}}><i className="fa fa-edit"></i></Link></li>,
+                <li id="mag"><Link to="/profileorg" style={{color:"#fff", padding:"25px"}} className="activein"><i className="fa fa-user" ></i></Link></li>
+            ]
+        }
+    }
     const history = useHistory()
     const [title, setTitle] = useState("")
     const[body, setBody] = useState("")
@@ -35,8 +50,7 @@ const Createpost = () => {
             <div className="nav-in" id="navbar-in">
                         <ul>
                             
-                            <li id="mag"><Link to="#" style={{color:"#fff", padding:"25px"}}className="activein"><i className="fa fa-edit"></i></Link></li>
-                            <li id="mag"><Link to="/profileorg" style={{color:"#fff", padding:"25px"}} ><i className="fa fa-user" ></i></Link></li>
+                            {renderList()}
                             
                         </ul>
             </div>

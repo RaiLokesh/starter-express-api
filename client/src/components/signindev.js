@@ -32,6 +32,7 @@ const SID = ()=>{
         M.toast({html: data.error, classes:"#f44336 red"})
       }
       else{
+        localStorage.setItem("who", data.who)
         localStorage.setItem("jwt", data.token)
         localStorage.setItem("user", JSON.stringify(data.user))
         dispatch({type:"USER", payload:data.user})
