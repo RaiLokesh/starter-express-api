@@ -17,13 +17,15 @@ export const UserContext = createContext()
 
 const Routing = ()=>{
   const history = useHistory()
+  const {state, dispatch} = useContext(UserContext)
   useEffect(()=>{
     const user = (localStorage.getItem("user"))
     console.log(user)
     if(!user){
-      
       history.push('/')
-        
+    }
+    else{
+      dispatch({type:"USER", payload:user})
     }
     },[])
   
