@@ -330,3 +330,8 @@ input::placeholder {
 h1{
   font-family: 'Poppins', sans-serif !important;
 }
+
+.logout{
+  top:100%;
+  left:auto
+}

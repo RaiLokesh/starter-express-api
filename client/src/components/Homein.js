@@ -1,6 +1,7 @@
 import React, {useState, useContext, useEffect} from 'react'
 import {Link, useHistory} from 'react-router-dom'
 import {UserContext} from '../App'
+import M from 'materialize-css'
 
 const Homein = () => {
     const history = useHistory()
@@ -10,9 +11,16 @@ const Homein = () => {
         console.log(who)
         if (who=="dev"){
             return[
-                <li id="mag"><Link to="/allpost" style={{color:"#fff", padding:"25px"}}><i className="fa fa-home" className="activein"></i></Link></li>,
+                <li id="mag"><Link to="/allpost" style={{color:"#fff", padding:"25px"}}><i className="fa fa-home activein" ></i></Link></li>,
                 <li id="mag"><Link to="#" style={{color:"#fff", padding:"25px"}}><i className="fa fa-envelope"></i></Link></li>,
-                <li id="mag"><Link to="/profiledev" style={{color:"#fff", padding:"25px"}} ><i className="fa fa-user" ></i></Link></li>
+                <li id="mag"><Link to="/profiledev" style={{color:"#fff", padding:"25px"}} ><i className="fa fa-user" ></i></Link></li>,
+                <button class="logout" onClick={()=>{
+                    localStorage.clear()
+                    dispatch({type:"CLEAR"})
+                    M.toast({html:"Logged out!", classes:"#64dd17 light-green accent-4"})
+                    history.push('/')
+                    }} style={{color:"green",fontSize:"50px", top:"100%"}} ><i className="fa fa-sign-out" ></i></button>
+                
             ]
         }else if(who=="org"){
             history.push('/profileorg')
