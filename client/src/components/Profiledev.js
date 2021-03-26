@@ -15,23 +15,13 @@ const Profiledev = () => {
                 <li id="mag"><Link to="#" style={{color:"#fff", padding:"25px"}}><i className="fa fa-envelope"></i></Link></li>,
                 <li id="mag"><Link to="/profiledev" style={{color:"#fff", padding:"25px"}} className="activein"><i className="fa fa-user" ></i></Link></li>,
                 
-                <button class="logout" onClick={()=>{
-                    localStorage.clear()
-                    dispatch({type:"CLEAR"})
-                    M.toast({html:"Logged out!", classes:"#64dd17 light-green accent-4"})
-                    history.push('/')
-                    }} style={{color:"green",fontSize:"50px", top:"100%"}} ><i className="fa fa-sign-out" ></i></button>
+                
             ]
         }else if(who=="org"){
             return[
                 <li id="mag"><Link to="/createjob" style={{color:"#fff", padding:"25px"}}><i className="fa fa-edit"></i></Link></li>,
                 <li id="mag"><Link to="/profileosrg" style={{color:"#fff", padding:"25px"}} className="activein"><i className="fa fa-user" ></i></Link></li>,
-                <button class="logout" onClick={()=>{
-                    localStorage.clear()
-                    dispatch({type:"CLEAR"})
-                    M.toast({html:"Logged out!", classes:"#64dd17 light-green accent-4"})
-                    history.push('/')
-                    }} style={{color:"green",fontSize:"50px", top:"100%"}} ><i className="fa fa-sign-out" ></i></button>
+                
             ]
         }
     }
@@ -43,6 +33,14 @@ const Profiledev = () => {
                             {renderList()}
                             
                         </ul>
+            </div>
+            <div className="nav-out">
+                    <button class="logout" onClick={()=>{
+                    localStorage.clear()
+                    dispatch({type:"CLEAR"})
+                    M.toast({html:"Logged out!", classes:"#64dd17 light-green accent-4"})
+                    history.push('/')
+                    }} style={{color:"green",fontSize:"50px", top:"100%"}} ><i className="fa fa-sign-out" ></i></button>
             </div>
             <div className="insidediv">
                 

@@ -332,6 +332,28 @@ h1{
 }
 
 .logout{
-  top:100%;
-  left:auto
+  background-color: #121212;
+  color: #F1EC40;
+  padding: 14px 20px;
+  border-radius: 200px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 700;
+}
+.nav-out{
+  position: fixed;
+  top: 80%;
+  left:0%;
+  text-align: center;
+  width: 10%;
+}
+.myposts-re{
+  position: relative;
+  height: 100%;
+  top: 60%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
