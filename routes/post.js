@@ -51,4 +51,33 @@ router.get('/mypost',requireLogin, (req, res)=>{
     })
 })
 
+router.put('/apply', requireuserLogin, (req, res)=>{
+    
+    Post.findByIdAndUpdate(req.body.postId,{
+        $push:{appliedBy:req.user._id}
+    },{
+        new:true
+    }).exec((err, result)=>{
+        if(err){
+            return res.status(422).json({error:err})
+        }else{
+            res.json(result)
+        }
+    })
+})
+router.put('/unapply', requireuserLogin, (req, res)=>{
+
+    Post.findByIdAndUpdate(req.body.postId,{
+        $pull:{appliedBy:req.user._id}
+    },{
+        new:true
+    }).exec((err, result)=>{
+        if(err){
+            return res.status(422).json({error:err})
+        }else{
+            res.json(result)
+        }
+    })
+})
+
 module.exports = router

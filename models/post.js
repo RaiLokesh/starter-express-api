@@ -13,9 +13,12 @@ const postSchema = new mongoose.Schema({
         type:String,
         default: "no photo" //remove default and add required=true when get img from profile
     },
+    appliedBy:[{type:ObjectId, ref:"User"}],
     postedBy:{
         type:ObjectId,
         ref:"Org"
     }
 })
+
+
 mongoose.model("Post",postSchema)

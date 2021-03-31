@@ -14,6 +14,12 @@ const Homein = () => {
                 <li id="mag"><Link to="/allpost" style={{color:"#fff", padding:"25px"}}><i className="fa fa-home activein" ></i></Link></li>,
                 <li id="mag"><Link to="#" style={{color:"#fff", padding:"25px"}}><i className="fa fa-envelope"></i></Link></li>,
                 <li id="mag"><Link to="/profiledev" style={{color:"#fff", padding:"25px"}} ><i className="fa fa-user" ></i></Link></li>,
+                <li id="mag"><Link to ="#"><button onClick={()=>{
+                    localStorage.clear()
+                    dispatch({type:"CLEAR"})
+                    M.toast({html:"Logged out!", classes:"#64dd17 light-green accent-4"})
+                    history.push('/')
+                    }} style={{color:"red", top:"100%"}} ><i className="fa fa-sign-out" ></i></button></Link></li>
                 
                 
             ]
@@ -30,9 +36,42 @@ const Homein = () => {
                 }
             }).then(res=>res.json())
             .then(result=>{
+                console.log(result)
                 setData(result.posts)
             })
     },[])
+
+    const applyfor=(id)=>{
+        fetch('/apply',{
+            method:'put',
+            headers:{
+                "Content-Type": "application/json",
+                "Authorization": "Bearer "+localStorage.getItem("jwt")
+            },
+            body:JSON.stringify({
+                postId:id
+            })
+        }).then(res=>res.json())
+        .then(result=>{
+            console.log(result)
+        })
+    }
+    const unapplyfor=(id)=>{
+        fetch('/unapply',{
+            method:'put',
+            headers:{
+                "Content-Type": "application/json",
+                "Authorization": "Bearer "+localStorage.getItem("jwt")
+            },
+            body:JSON.stringify({
+                postId:id
+            })
+        }).then(res=>res.json())
+        .then(result=>{
+            console.log(result)
+        })
+    }
+    
 
     return (
         <div className="outsidediv">
@@ -41,14 +80,7 @@ const Homein = () => {
                             {renderList()}
                         </ul>
             </div>
-            <div className="nav-out">
-                    <button class="logout" onClick={()=>{
-                    localStorage.clear()
-                    dispatch({type:"CLEAR"})
-                    M.toast({html:"Logged out!", classes:"#64dd17 light-green accent-4"})
-                    history.push('/')
-                    }} style={{color:"green",fontSize:"50px", top:"100%"}} ><i className="fa fa-sign-out" ></i></button>
-            </div>
+            
             <div className="insidediv">
                 <br></br>
 
@@ -60,10 +92,11 @@ const Homein = () => {
                                     <img style={{borderRadius:"25px",width:"50px", height:"50px",border:"2px solid #fff"}} src={item.photo}>
                                     </img>
                                     <h1 style={{color:"#fff"}}>{item.postedBy.name}</h1>
-                                    <p style={{color:"#fff"}}>{item.title}</p>
+                                    <h5 style={{color:"#fff"}}>{item.title}</h5>
                                     <h4 style={{color:"#fff", fontFamily:"sans-serif"}}>Stipend: {item.body}</h4>
                                     <br></br>
-                                    <button className="newbutton">Apply</button>
+                                    <button className="newbutton" onClick={()=>{applyfor(item.id)}}>Apply</button>
+                                    <p style={{color:"#fff"}}>{item.appliedBy.length} applied.</p>
                                     <br></br>
                                     <hr></hr>
                                     <br></br>

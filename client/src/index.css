@@ -241,13 +241,9 @@ input::placeholder {
   background-color: #F1EC40;
 }
 
-#mag a:hover {
-  font-size: 36px;
-  
-}
 
 .activein{
-  font-size:36px;
+  color: #4ff140;
 }
 
 .nav-in{
