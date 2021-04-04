@@ -6,6 +6,12 @@ import M from 'materialize-css'
 const Homein = () => {
     const history = useHistory()
     const {state, dispatch} = useContext(UserContext)
+    //const user = localStorage.getItem("user")
+    //console.log(user._id)
+    var result = JSON.parse(state);
+    
+    
+
     const renderList = ()=>{
         const who = (localStorage.getItem("who"))
         console.log(who)
@@ -54,6 +60,16 @@ const Homein = () => {
         }).then(res=>res.json())
         .then(result=>{
             console.log(result)
+            const newData = data.map(item=>{
+                if(item._id==result._id){
+                    return result
+                }else{
+                    return item
+                }
+            })
+            setData(newData)
+        }).catch(err=>{
+            console.log(err)
         })
     }
     const unapplyfor=(id)=>{
@@ -69,8 +85,19 @@ const Homein = () => {
         }).then(res=>res.json())
         .then(result=>{
             console.log(result)
+            const newData = data.map(item=>{
+                if(item._id==result._id){
+                    return result
+                }else{
+                    return item
+                }
+            })
+            setData(newData)
+        }).catch(err=>{
+            console.log(err)
         })
     }
+    
     
 
     return (
@@ -87,15 +114,26 @@ const Homein = () => {
                 <div className="innerprofs-re">
                     {
                         data.map(item=>{
+                            
                             return(
                                 <div style={{}}>
                                     <img style={{borderRadius:"25px",width:"50px", height:"50px",border:"2px solid #fff"}} src={item.photo}>
                                     </img>
+                                    
                                     <h1 style={{color:"#fff"}}>{item.postedBy.name}</h1>
                                     <h5 style={{color:"#fff"}}>{item.title}</h5>
                                     <h4 style={{color:"#fff", fontFamily:"sans-serif"}}>Stipend: {item.body}</h4>
                                     <br></br>
-                                    <button className="newbutton" onClick={()=>{applyfor(item.id)}}>Apply</button>
+                                    
+                                    {item.appliedBy.includes(result._id)
+                                    
+                                    
+                                    ?
+                                    <button className="newbutton" onClick={()=>{unapplyfor(item._id)}}>Unapply</button>
+                                    :
+                                    <button className="newbutton" onClick={()=>{applyfor(item._id)}}>Apply</button>
+                                    }
+                                    
                                     <p style={{color:"#fff"}}>{item.appliedBy.length} applied.</p>
                                     <br></br>
                                     <hr></hr>
