@@ -5,9 +5,9 @@ const requireLogin = require('../middleware/requireLogin')
 const requireuserLogin = require('../middleware/requireuserLogin')
 const Post = mongoose.model('Post')
 
-router.get('/allpost',requireuserLogin, (req, res)=>{    //new middleware here
+router.get('/allpost',requireuserLogin, (req, res)=>{    
     Post.find()
-    .populate("postedBy", "name _id")
+    .populate("postedBy", "_id name")
     .then(posts=>{
         res.json({posts})
     })
@@ -57,7 +57,9 @@ router.put('/apply', requireuserLogin, (req, res)=>{
         $push:{appliedBy:req.user._id}
     },{
         new:true
-    }).exec((err, result)=>{
+    })
+    .populate("postedBy", "_id name")
+    .exec((err, result)=>{
         if(err){
             return res.status(422).json({error:err})
         }else{
@@ -71,7 +73,9 @@ router.put('/unapply', requireuserLogin, (req, res)=>{
         $pull:{appliedBy:req.user._id}
     },{
         new:true
-    }).exec((err, result)=>{
+    })
+    .populate("postedBy", "_id name")
+    .exec((err, result)=>{
         if(err){
             return res.status(422).json({error:err})
         }else{

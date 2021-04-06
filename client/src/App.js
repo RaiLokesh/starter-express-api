@@ -14,6 +14,7 @@ import Createpost from './components/Createpost';
 import {reducer, initialState} from './reducers/userReducer'
 
 export const UserContext = createContext()
+console.log(UserContext)
 
 const Routing = ()=>{
   const history = useHistory()

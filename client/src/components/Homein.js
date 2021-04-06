@@ -6,10 +6,7 @@ import M from 'materialize-css'
 const Homein = () => {
     const history = useHistory()
     const {state, dispatch} = useContext(UserContext)
-    //const user = localStorage.getItem("user")
-    //console.log(user._id)
-    var result = JSON.parse(state);
-    
+    const result = JSON.parse(localStorage.getItem("user"))
     
 
     const renderList = ()=>{
@@ -119,7 +116,6 @@ const Homein = () => {
                                 <div style={{}}>
                                     <img style={{borderRadius:"25px",width:"50px", height:"50px",border:"2px solid #fff"}} src={item.photo}>
                                     </img>
-                                    
                                     <h1 style={{color:"#fff"}}>{item.postedBy.name}</h1>
                                     <h5 style={{color:"#fff"}}>{item.title}</h5>
                                     <h4 style={{color:"#fff", fontFamily:"sans-serif"}}>Stipend: {item.body}</h4>
