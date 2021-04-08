@@ -1,13 +1,15 @@
 import React, {useState, useContext, useEffect} from 'react'
-import {Link,useHistory} from 'react-router-dom'
+import {Link,useHistory, useParams} from 'react-router-dom'
 import {UserContext} from '../App'
 import M from 'materialize-css'
 
-const Profileorg = () => {
+
+const UserProfile = () => {
     const history = useHistory()
     const {state, dispatch} = useContext(UserContext)
-    console.log(state)
     const who = (localStorage.getItem("who"))
+    const {userid} =  useParams()
+    console.log(userid)
     const renderList = ()=>{
         console.log(who)
         if (who=="dev"){
@@ -41,16 +43,16 @@ const Profileorg = () => {
     }
     const [data, setData] = useState([])
     useEffect(()=>{
-            fetch('/mypost',{
+            fetch(`/user/${userid}`,{
                 headers:{
                     "Authorization":"Bearer "+localStorage.getItem("jwt")
                 }
             }).then(res=>res.json())
             .then(result=>{
-                setData(result.mypost)
+                console.log(result)
             })
     },[])
-    if (who == "org"){
+    
     return (
         
         <div className="outsidediv">
@@ -69,13 +71,13 @@ const Profileorg = () => {
                             
                             <img className="img-pos" style={{width:"160px", height:"160px", borderRadius:"80px", border:"5px solid #121212", backgroundColor:"#fff"}} src = "https://github.com/RaiLokesh/Sinecure/blob/master/client/public/logo.png?raw=true" />
                             
-                            <h1 className="styles" style={{fontSize:"40px",fontFamily: "'Dancing Script', cursive", textAlign:"left",paddingLeft:"1.5%"}}>
-                                {state.name}
-                                </h1>
-                            <p className="styles" style={{fontFamily: "'Dancing Script', cursive", fontSize:"20px",textAlign:"left",paddingLeft:"1.5%"}}>
-                                ({state.email})
-                            </p>
+                            <h1 className="styles" style={{fontSize:"40px",fontFamily: "'Dancing Script', cursive", textAlign:"left"}}>
+                                Sinecure
                             
+                            <p className="styles" style={{fontFamily: "'Dancing Script', cursive", fontSize:"20px",textAlign:"left"}}>
+                                (sinecure)
+                            </p>
+                            </h1>
                             <a href="#" style={{color:"#fff", fontSize:"20px"}}><i className="fa fa-twitter"></i></a>
                             <a href="#" style={{color:"#fff", fontSize:"20px"}}><i className="fa fa-linkedin"></i></a>
                             <a href="#"><i className="fa fa-github" style={{color:"#fff", fontSize:"20px"}}></i></a>
@@ -123,52 +125,7 @@ const Profileorg = () => {
         
         
     )
-    }else{
-        return(
-            <div className="outsidediv">
-            <div className="nav-in" id="navbar-in">
-                        <ul>
-                            
-                            {renderList()}
-                            
-                        </ul>
-            </div>
-            
-            <div className="insidediv">
-
-                    <br></br><br></br><br></br>
-                    <div className="back">
-                            
-                            <img className="img-pos" style={{width:"160px", height:"160px", borderRadius:"80px", border:"5px solid #121212", backgroundColor:"#fff"}} src = "https://github.com/RaiLokesh/Sinecure/blob/master/client/public/logo.png?raw=true" />
-                            
-                            <h1 className="styles" style={{fontSize:"40px",fontFamily: "'Dancing Script', cursive", textAlign:"left",paddingLeft:"1.5%"}}>
-                                Sinecure
-                            
-                            <p className="styles" style={{fontFamily: "'Dancing Script', cursive", fontSize:"20px",textAlign:"left",paddingLeft:"1.5%"}}>
-                                (sinecure)
-                            </p>
-                            </h1>
-                            <a href="#" style={{color:"#fff", fontSize:"20px"}}><i className="fa fa-twitter"></i></a>
-                            <a href="#" style={{color:"#fff", fontSize:"20px"}}><i className="fa fa-linkedin"></i></a>
-                            <a href="#"><i className="fa fa-github" style={{color:"#fff", fontSize:"20px"}}></i></a>
-                    <div className="innerprofs">
-                        <p style={{textAlign:"center", fontSize:"40px"}} className="styles">
-                            About Us
-                        </p>
-                        <p className="styles" style={{textAlign:"center"}}>
-                            
-                            We(well technically only me) are an organisation with various on going projects, the development of this website is one of them.
-                            
-                        </p>
-
-                        
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        )
-    }
+    
 }
 
-export default Profileorg
+export default UserProfile

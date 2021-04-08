@@ -57,13 +57,13 @@ const Profiledev = () => {
                             
                             <img className="img-pos" style={{width:"160px", height:"160px", borderRadius:"80px", border:"5px solid #121212", backgroundColor:"#fff"}} src = "https://github.com/RaiLokesh/Portfolio/blob/master/img/abt.png?raw=true" />
                             
-                            <h1 className="styles" style={{fontSize:"40px",fontFamily: "'Dancing Script', cursive", textAlign:"left"}}>
-                                Lokesh Rai
-                            
-                            <p className="styles" style={{fontFamily: "'Dancing Script', cursive", fontSize:"20px",textAlign:"left"}}>
-                                (RaiLokesh)
+                            <h1 className="styles" style={{fontSize:"40px",fontFamily: "'Dancing Script', cursive", textAlign:"left", paddingLeft:"1.5%"}}>
+                                {state.name}
+                                </h1>
+                            <p className="styles" style={{fontFamily: "'Dancing Script', cursive", fontSize:"20px",textAlign:"left",paddingLeft:"1.5%"}}>
+                                ({state.email})
                             </p>
-                            </h1>
+                            
                             <a href="https://twitter.com/RhetoricianSays" style={{color:"#fff", fontSize:"20px"}}><i className="fa fa-twitter"></i></a>
                             <a href="https://www.linkedin.com/in/lokesh-rai-60a324199/" style={{color:"#fff", fontSize:"20px"}}><i className="fa fa-linkedin"></i></a>
                             <a href="https://github.com/RaiLokesh"><i className="fa fa-github" style={{color:"#fff", fontSize:"20px"}}></i></a>

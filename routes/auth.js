@@ -127,9 +127,9 @@ router.post('/signinorg', (req, res)=>{
             if(doMatch){
                 // res.json({message:"Successful Signup"})
                 const token = jwt.sign({_id:savedUser._id}, JWT_SECRET2)
-                const {_id, email} = savedUser
+                const {_id, email, name} = savedUser
                 const who="org"
-                res.json({token, user:{_id,email}, who})
+                res.json({token, user:{_id,email, name}, who})
             }
             else{
                 res.status(422).json({error:"Invalid Email or Passowrd"})

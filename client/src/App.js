@@ -10,6 +10,7 @@ import Contact from './components/Contact'
 import Profiledev from './components/Profiledev'
 import Profileorg from './components/Profileorg'
 import Homein from './components/Homein';
+import UserProfile from './components/UserProfile';
 import Createpost from './components/Createpost';
 import {reducer, initialState} from './reducers/userReducer'
 
@@ -65,7 +66,7 @@ const Routing = ()=>{
           <Profiledev/>
         </Route>
 
-        <Route path="/profileorg">
+        <Route exact path="/profileorg">
           <Profileorg/>
         </Route>
 
@@ -75,6 +76,10 @@ const Routing = ()=>{
 
         <Route path="/createjob">
           <Createpost/>
+        </Route>
+
+        <Route path="/profileorg/:userid">
+          <UserProfile/>
         </Route>
       </Switch>
   )
