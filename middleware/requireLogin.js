@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const {JWT_SECRET2} = require('../keys')
+const {JWT_SECRET2} = require('../config/keys')
 const mongoose = require('mongoose')
 const User = mongoose.model('Org')
 

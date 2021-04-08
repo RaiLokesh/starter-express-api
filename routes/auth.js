@@ -5,8 +5,8 @@ const User = mongoose.model("User")
 const Org = mongoose.model("Org")
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const {JWT_SECRET1} = require('../keys')
-const {JWT_SECRET2} = require('../keys')
+const {JWT_SECRET1} = require('../config/keys')
+const {JWT_SECRET2} = require('../config/keys')
 const requireLogin = require('../middleware/requireLogin')
 
 

@@ -15,7 +15,7 @@ const SUD = ()=>{
       M.toast({html: "Invalid email",classes:"#f44336 red"})
       return
     }
-    fetch("http://localhost:5000/signupdev",{
+    fetch("/signupdev",{
       method:"post",
       headers:{
         "Content-Type":"application/json"
