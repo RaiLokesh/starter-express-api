@@ -1,4 +1,4 @@
-FROM node:12.18.1
+FROM node
 RUN mkdir -p /app/
 WORKDIR /app/
 
@@ -10,7 +10,7 @@ RUN npm i
 WORKDIR /app/client
 RUN npm i
 # RUN npm install worker-loader
-RUN npm run-script build
+RUN npm run build
 
 
 RUN useradd -m myuser
