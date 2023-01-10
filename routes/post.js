@@ -54,7 +54,7 @@ router.get('/mypost',requireLogin, (req, res)=>{
 router.put('/apply', requireuserLogin, (req, res)=>{
     
     Post.findByIdAndUpdate(req.body.postId,{
-        $push:{appliedBy:req.user._id}
+        $push:{appliedBy:req.user._id, name:req.user.name}
     },{
         new:true
     })
@@ -70,7 +70,7 @@ router.put('/apply', requireuserLogin, (req, res)=>{
 router.put('/unapply', requireuserLogin, (req, res)=>{
 
     Post.findByIdAndUpdate(req.body.postId,{
-        $pull:{appliedBy:req.user._id}
+        $pull:{appliedBy:req.user._id, name:req.user.name}
     },{
         new:true
     })
@@ -80,6 +80,27 @@ router.put('/unapply', requireuserLogin, (req, res)=>{
             return res.status(422).json({error:err})
         }else{
             res.json(result)
+        }
+    })
+})
+
+router.delete('/deletepost/:postid',requireLogin, (req, res)=>{
+    
+    Post.findOne({_id:req.params.postid})
+    .populate("postedBy", "_id")
+    
+    .exec((err, post)=>{
+        if (err||!post){
+            return res.status(422).json({error:err})
+
+        }
+        if (post.postedBy._id.toString() === req.user._id.toString()){
+            post.remove()
+            .then(result=>{
+                res.json({message:"Successfully deleted"})
+            }).catch(err=>{
+                console.log(err)
+            })
         }
     })
 })

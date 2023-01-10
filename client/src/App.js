@@ -28,6 +28,8 @@ const Routing = ()=>{
     }
     else{
       dispatch({type:"USER", payload:user})
+      const who = (localStorage.getItem("who"))
+      
     }
     },[])
   

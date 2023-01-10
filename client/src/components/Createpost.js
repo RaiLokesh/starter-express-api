@@ -28,7 +28,7 @@ const Createpost = () => {
     const [title, setTitle] = useState("")
     const[body, setBody] = useState("")
     const PostData = ()=>{
-        fetch("/createpost",{
+        fetch("http://localhost:5000/createpost",{
             method:"post",
             headers:{
               "Content-Type":"application/json",

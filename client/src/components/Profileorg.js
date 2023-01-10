@@ -5,8 +5,7 @@ import M from 'materialize-css'
 
 const Profileorg = () => {
     const history = useHistory()
-    const {state, dispatch} = useContext(UserContext)
-    console.log(state)
+    let {state, dispatch} = useContext(UserContext)
     const who = (localStorage.getItem("who"))
     const renderList = ()=>{
         console.log(who)
@@ -41,7 +40,7 @@ const Profileorg = () => {
     }
     const [data, setData] = useState([])
     useEffect(()=>{
-            fetch('/mypost',{
+            fetch('http://localhost:5000/mypost',{
                 headers:{
                     "Authorization":"Bearer "+localStorage.getItem("jwt")
                 }
@@ -50,6 +49,20 @@ const Profileorg = () => {
                 setData(result.mypost)
             })
     },[])
+    const deletepost = (postid)=>{
+        fetch(`http://localhost:5000/deletepost/${postid}`,{
+            method:"delete", 
+            headers:{
+                Authorization:"Bearer "+localStorage.getItem("jwt")
+            }
+        }).then(res=>res.json())
+        .then(res=>{
+            console.log(res)
+            
+        })
+        
+
+    }
     if (who == "org"){
     return (
         
@@ -104,7 +117,7 @@ const Profileorg = () => {
                                             
                                             <h5 style={{color:"#fff"}}>{item.title}</h5>
                                             <h4 style={{color:"#fff", fontFamily:"sans-serif"}}>Stipend: {item.body}</h4>
-                                            
+                                            <h4 style={{color:"#fff", fontFamily:"sans-serif"}}>appliedby: {item.appliedBy}</h4>
                                             <br></br>
                                             <hr></hr>
                                             <br></br>

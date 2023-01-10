@@ -33,7 +33,7 @@ const Homein = () => {
 
     const [data, setData] = useState([])
     useEffect(()=>{
-            fetch('/allpost',{
+            fetch('http://localhost:5000/allpost',{
                 headers:{
                     "Authorization":"Bearer "+localStorage.getItem("jwt")
                 }
@@ -45,7 +45,7 @@ const Homein = () => {
     },[])
 
     const applyfor=(id)=>{
-        fetch('/apply',{
+        fetch('http://localhost:5000/apply',{
             method:'put',
             headers:{
                 "Content-Type": "application/json",
@@ -70,7 +70,7 @@ const Homein = () => {
         })
     }
     const unapplyfor=(id)=>{
-        fetch('/unapply',{
+        fetch('http://localhost:5000/unapply',{
             method:'put',
             headers:{
                 "Content-Type": "application/json",
