@@ -13,8 +13,8 @@ RUN npm i
 RUN npm run build
 
 
-RUN useradd -m myuser
-USER myuser
+# RUN useradd -m myuser
+# USER myuser
 
 WORKDIR /app
 CMD ["npm", "start"]
