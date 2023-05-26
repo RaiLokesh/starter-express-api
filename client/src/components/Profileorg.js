@@ -40,7 +40,7 @@ const Profileorg = () => {
     }
     const [data, setData] = useState([])
     useEffect(()=>{
-            fetch('http://localhost:5000/mypost',{
+            fetch('mypost',{
                 headers:{
                     "Authorization":"Bearer "+localStorage.getItem("jwt")
                 }
@@ -50,7 +50,7 @@ const Profileorg = () => {
             })
     },[])
     const deletepost = (postid)=>{
-        fetch(`http://localhost:5000/deletepost/${postid}`,{
+        fetch(`deletepost/${postid}`,{
             method:"delete", 
             headers:{
                 Authorization:"Bearer "+localStorage.getItem("jwt")

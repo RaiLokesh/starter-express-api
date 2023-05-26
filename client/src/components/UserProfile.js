@@ -43,7 +43,7 @@ const UserProfile = () => {
     }
     const [data, setData] = useState([])
     useEffect(()=>{
-            fetch(`http://localhost:5000/user/${userid}`,{
+            fetch(`user/${userid}`,{
                 headers:{
                     "Authorization":"Bearer "+localStorage.getItem("jwt")
                 }
